@@ -261,51 +261,58 @@ def find_store_contact(domain: str) -> dict:
 
     return contact
 
+#
+# def load_product_handles(domain: str, limit: int = 5) -> List[str]:
+#     """Find shopify product handles on specified domain
 
-def load_product_handles(domain: str, limit: int = 5) -> List[str]:
-    """Find shopify product handles on specified domain
+#     Parameters:
+#         domain (str): Shopify store domain
+#         limit (int): Max number of returned products
 
-    Parameters:
-        domain (str): Shopify store domain
-        limit (int): Max number of returned products
+#     Returns:
+#         List[str]: List of shopify product handles
 
-    Returns:
-        List[str]: List of shopify product handles
+#     """
+#     url = f"https://{domain}/collections/all"
 
-    """
-    url = f"https://{domain}/collections/all"
+#     content = load_page(url)
 
-    content = load_page(url)
+#     if content is None:
+#         raise ValueError(f"Product list '{url}' could not be loaded")
 
-    if content is None:
-        raise ValueError(f"Product list '{url}' could not be loaded")
+#     handles = extract_product_handles(content, limit)
 
-    handles = extract_product_handles(content, limit)
-
-    return handles
+#     return handles
 
 
-def load_product_json(domain: str, handle: str) -> dict:
-    """Download shopify product data in JSON format
+# def load_product_json(domain: str, handle: str) -> dict:
+#     """Download shopify product data in JSON format
 
-    Parameters:
-        domain (str): Shopify store domain
-        handle (str): Shopify product handle
+#     Parameters:
+#         domain (str): Shopify store domain
+#         handle (str): Shopify product handle
 
-    Returns:
-        dict: Dict of shopify product info
+#     Returns:
+#         dict: Dict of shopify product info
 
-    """
-    url = f"https://{domain}/products/{handle}.json"
+#     """
+#     url = f"https://{domain}/products/{handle}.json"
 
-    content = load_page(url)
+#     content = load_page(url)
 
-    if content is None:
-        raise ValueError(f"Product JSON '{url}' could not be loaded")
+#     if content is None:
+#         raise ValueError(f"Product JSON '{url}' could not be loaded")
 
-    product = parse_product(content)
+#     product = parse_product(content)
 
-    return product
+#     return product
+
+#
+def load_product_json(domain: str)
+
+
+request.get("https://{domain}/products.json")
+Print(response.csv())
 
 
 def save_stores_to_csv(stores: List[dict], path: str) -> None:
